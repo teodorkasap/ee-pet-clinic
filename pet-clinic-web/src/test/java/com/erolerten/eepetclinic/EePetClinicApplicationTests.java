@@ -1,4 +1,4 @@
-package eepetclinic;
+package com.erolerten.eepetclinic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
