@@ -4,21 +4,24 @@ import com.erolerten.eepetclinic.model.Owner;
 import com.erolerten.eepetclinic.model.Vet;
 import com.erolerten.eepetclinic.services.OwnerService;
 import com.erolerten.eepetclinic.services.VetService;
-import com.erolerten.eepetclinic.services.map.OwnerServiceMap;
-import com.erolerten.eepetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+//import com.erolerten.eepetclinic.services.map.OwnerServiceMap;
+//import com.erolerten.eepetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerService ownerServıce;
+
+    private final OwnerService ownerService;
     private final VetService vetService;
 
 
-    public DataLoader() {
-        ownerServıce = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+
+        this.ownerService = ownerService;
+        this.vetService= vetService;
     }
 
     @Override
@@ -29,14 +32,14 @@ public class DataLoader implements CommandLineRunner {
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
 
-        ownerServıce.save(owner1);
+        ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setId(2L);
         owner2.setFirstName("Fona");
         owner2.setLastName("Glenanne");
 
-        ownerServıce.save(owner2);
+        ownerService.save(owner2);
 
         System.out.println("Loaded Owners....");
 

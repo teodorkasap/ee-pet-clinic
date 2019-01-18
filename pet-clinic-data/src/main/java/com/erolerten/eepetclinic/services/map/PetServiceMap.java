@@ -2,9 +2,11 @@ package com.erolerten.eepetclinic.services.map;
 
 import com.erolerten.eepetclinic.model.Pet;
 import com.erolerten.eepetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
 
     @Override
