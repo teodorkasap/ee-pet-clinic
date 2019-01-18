@@ -1,11 +1,11 @@
 package com.erolerten.eepetclinic.services.map;
 
 import com.erolerten.eepetclinic.model.Pet;
-import com.erolerten.eepetclinic.services.CrudService;
+import com.erolerten.eepetclinic.services.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet,Long> implements CrudService<Pet,Long> {
+public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
