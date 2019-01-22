@@ -1,13 +1,13 @@
 package com.erolerten.eepetclinic.services.map;
 
 import com.erolerten.eepetclinic.model.Speciality;
-import com.erolerten.eepetclinic.services.SpecialitiesService;
+import com.erolerten.eepetclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class SpecialityMapService extends AbstractMapService<Speciality,Long> implements SpecialitiesService {
+public class SpecialityMapService extends AbstractMapService<Speciality,Long> implements SpecialityService {
 
     @Override
     public Set<Speciality> findAll() {
