@@ -23,19 +23,19 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
 
     @Override
     public Visit save(Visit visit) {
-        if (visit.getPet() == null || visit.getPet().getOwner()==null|| visit.getPet().getId()==null){
+        if (visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null) {
             throw new RuntimeException("Properties are missing, invalid visit...");
         }
-            return super.save(visit);
+        return super.save(visit);
     }
 
     @Override
     public void delete(Visit object) {
-            super.delete(object);
+        super.delete(object);
     }
 
     @Override
     public void deleteById(Long id) {
-            super.deleteById(id);
+        super.deleteById(id);
     }
 }

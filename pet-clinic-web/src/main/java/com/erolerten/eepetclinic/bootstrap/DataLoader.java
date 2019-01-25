@@ -1,10 +1,7 @@
 package com.erolerten.eepetclinic.bootstrap;
 
 import com.erolerten.eepetclinic.model.*;
-import com.erolerten.eepetclinic.services.OwnerService;
-import com.erolerten.eepetclinic.services.PetTypeService;
-import com.erolerten.eepetclinic.services.SpecialityService;
-import com.erolerten.eepetclinic.services.VetService;
+import com.erolerten.eepetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -21,14 +18,16 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
 
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -89,6 +88,8 @@ public class DataLoader implements CommandLineRunner {
         mikesPet.setName("Rosco");
         owner1.getPets().add(mikesPet);
 
+
+
         Pet fionasCat = new Pet();
         fionasCat.setPetType(savedCatPetType);
         fionasCat.setOwner(owner2);
@@ -96,6 +97,22 @@ public class DataLoader implements CommandLineRunner {
         fionasCat.setName("Just Cat");
         fionasCat.setPetType(savedCatPetType);
         owner2.getPets().add(fionasCat);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty...");
+
+        //visitService.save(catVisit);
+        System.out.println("Rosco's ID: "+mikesPet.getId());
+        if (owner2.getPets().contains(fionasCat)){
+            System.out.println("cat is here");
+            System.out.println(fionasCat.getId());
+            System.out.println(fionasCat.getOwner().getId());
+            System.out.println(owner2.getId());
+        }else {
+            System.out.println("something went wrong");
+        }
 
         System.out.println("Loaded Owners....");
 
