@@ -70,6 +70,13 @@ public class DataLoader implements CommandLineRunner {
         owner1.setCity("istanbul");
         owner1.setTelephone("1234567899");
 
+        Pet mikesPet = new Pet();
+        mikesPet.setPetType(savedDogPetType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBirthDate(LocalDate.now());
+        mikesPet.setName("Rosco");
+        owner1.getPets().add(mikesPet);
+
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
@@ -79,17 +86,6 @@ public class DataLoader implements CommandLineRunner {
         owner2.setCity("istanbul");
         owner2.setTelephone("6789912345");
 
-        ownerService.save(owner2);
-
-        Pet mikesPet = new Pet();
-        mikesPet.setPetType(savedDogPetType);
-        mikesPet.setOwner(owner1);
-        mikesPet.setBirthDate(LocalDate.now());
-        mikesPet.setName("Rosco");
-        owner1.getPets().add(mikesPet);
-
-
-
         Pet fionasCat = new Pet();
         fionasCat.setPetType(savedCatPetType);
         fionasCat.setOwner(owner2);
@@ -98,12 +94,16 @@ public class DataLoader implements CommandLineRunner {
         fionasCat.setPetType(savedCatPetType);
         owner2.getPets().add(fionasCat);
 
+
+        ownerService.save(owner2);
+
+
         Visit catVisit = new Visit();
         catVisit.setPet(fionasCat);
         catVisit.setDate(LocalDate.now());
         catVisit.setDescription("Sneezy Kitty...");
 
-        //visitService.save(catVisit);
+        visitService.save(catVisit);
         System.out.println("Rosco's ID: "+mikesPet.getId());
         if (owner2.getPets().contains(fionasCat)){
             System.out.println("cat is here");
