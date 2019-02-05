@@ -14,7 +14,7 @@
     </parent>
     <groupId>com.erolerten</groupId>
     <artifactId>ee-pet-clinic</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>ee-pet-clinic</name>
     <description>EE Pet Clinic Project</description>
 
